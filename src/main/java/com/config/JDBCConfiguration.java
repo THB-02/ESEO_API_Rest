@@ -21,12 +21,12 @@ public class JDBCConfiguration {
 
 	public static JDBCConfiguration getInstance() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
 
 		}
 
-		JDBCConfiguration instance = new JDBCConfiguration("jdbc:mysql://192.168.56.101/maven", "gpi2", "network");
+		JDBCConfiguration instance = new JDBCConfiguration("jdbc:postgresql://127.0.0.1:15432/Rest_Api", "postgres", "postgres");
 		return instance;
 	}
 
