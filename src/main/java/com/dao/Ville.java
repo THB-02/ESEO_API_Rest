@@ -3,7 +3,6 @@ package com.dao;
 public class Ville {
 
 	
-	
     private int codeINSEE;
     private String nomCommune;
     private int CP;
