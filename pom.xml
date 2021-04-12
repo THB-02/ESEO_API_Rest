@@ -17,28 +17,6 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<settings>
-		<pluginGroups>
-			<pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
-		</pluginGroups>
-		<profiles>
-			<profile>
-				<id>sonar</id>
-				<activation>
-					<activeByDefault>true</activeByDefault>
-				</activation>
-				<properties>
-					<sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
-					<sonar.login>admin</sonar.login>
-					<sonar.projectName>Apache James</sonar.projectName>
-					<sonar.projectVersion>master</sonar.projectVersion>
-					<sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>
-					<sonar.exclusions>**/ai/**/*.*,**/jdbc/**/*.*,**/mpt/**/*.*,**/jcr/**/*.*,**/JDBC*</sonar.exclusions>
-				</properties>
-			</profile>
-		</profiles>
-	</settings>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -114,6 +92,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.2</version>
+            </plugin>
 		</plugins>
 	</build>
 </project>
