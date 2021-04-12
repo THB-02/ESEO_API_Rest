@@ -17,6 +17,28 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<settings>
+		<pluginGroups>
+			<pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+		</pluginGroups>
+		<profiles>
+			<profile>
+				<id>sonar</id>
+				<activation>
+					<activeByDefault>true</activeByDefault>
+				</activation>
+				<properties>
+					<sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
+					<sonar.login>admin</sonar.login>
+					<sonar.projectName>Apache James</sonar.projectName>
+					<sonar.projectVersion>master</sonar.projectVersion>
+					<sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>
+					<sonar.exclusions>**/ai/**/*.*,**/jdbc/**/*.*,**/mpt/**/*.*,**/jcr/**/*.*,**/JDBC*</sonar.exclusions>
+				</properties>
+			</profile>
+		</profiles>
+	</settings>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -53,7 +75,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -70,17 +92,17 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-		
+
 		<dependency>
-	        <groupId>com.fasterxml.jackson.core</groupId>
-	        <artifactId>jackson-core</artifactId>
-	        <version>2.9.6</version>
-    	</dependency>
-    	
-    	<dependency>
-		   <groupId>org.sonarsource.scanner.maven</groupId>
-		   <artifactId>sonar-maven-plugin</artifactId>
-		   <version>3.8.0.2131</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.8.0.2131</version>
 		</dependency>
 
 
