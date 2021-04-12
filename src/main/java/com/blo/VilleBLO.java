@@ -1,5 +1,4 @@
 package com.blo;
 
-public class VilleBLO {
-
+public interface VilleBLO {
 }

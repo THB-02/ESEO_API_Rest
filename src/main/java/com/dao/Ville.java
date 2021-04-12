@@ -1,8 +1,10 @@
 package com.dao;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Ville {
 
-	
+	@JsonProperty
     private int codeINSEE;
     private String nomCommune;
     private int CP;
@@ -11,7 +13,6 @@ public class Ville {
     private String lattitude;
     private String longitude;
 
-    
     public Ville(int codeINSEE,String commune,int cp,String libelleAcheminement,String ligne_5, String lattitude, String longitude) {
         this.codeINSEE = codeINSEE;
         this.nomCommune = commune;
