@@ -45,6 +45,14 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+					connexion.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
        return villes;
 	}
 	
