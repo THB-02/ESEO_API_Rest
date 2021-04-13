@@ -159,6 +159,7 @@ public class VilleDaoImpl implements VilleDao {
 			String longitude) {
 		Connection connexion = null;
         PreparedStatement statement = null;
+        PreparedStatement statement2 = null;
         ResultSet resultat = null;
             try {
 				connexion = jdbcConfiguration.getConnection();
@@ -167,7 +168,7 @@ public class VilleDaoImpl implements VilleDao {
 				resultat = statement.executeQuery();
 				
 				if(resultat.next()) {
-					statement = connexion.prepareStatement("Insert Into ville_france Values(?,?,?,?,?,?,?);");
+					statement2 = connexion.prepareStatement("Insert Into ville_france Values(?,?,?,?,?,?,?);");
 		            
 		            statement.setString(1, INSEE);
 		            statement.setString(2, commune);
@@ -190,26 +191,35 @@ public class VilleDaoImpl implements VilleDao {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-            finally {
+			}finally {
             	try {
-            		if(resultat != null) {
-            			resultat.close();
+            		if(statement != null) {
+            			statement.close();
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}finally {
 	            	try {
-	            		if(statement != null) {
-	            			statement.close();
+	            		if(resultat != null) {
+	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
+					}finally {
+		            	try {
+		            		if(statement2 != null) {
+		            			statement2.close();
+		            		}
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		            }
 	            }
             }
+            
             
 		return "ERREUR, Verifiez vos parametres";
 	}
