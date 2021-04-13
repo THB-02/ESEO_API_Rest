@@ -83,6 +83,16 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
 		
 		return null;
 		
@@ -113,7 +123,16 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
 		return "ERREUR, Verifiez vos parametres";
 	}
 	
@@ -154,6 +173,16 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
             
 		return "ERREUR, Verifiez vos parametres";
 	}
@@ -187,6 +216,16 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
             
 		return "Ville effacee";
 	}
