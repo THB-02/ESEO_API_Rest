@@ -50,13 +50,19 @@ public class VilleDaoImpl implements VilleDao {
             		if(statement != null) {
             			statement.close();
             		}
-            		if(resultat != null) {
-            			resultat.close();
-            		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}finally {
+	            	try {
+	            		if(resultat != null) {
+	            			resultat.close();
+	            		}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	            }
             }
        return villes;
 	}
@@ -66,7 +72,6 @@ public class VilleDaoImpl implements VilleDao {
 		Connection connexion = null;
         PreparedStatement statement = null;
         ResultSet resultat = null;
-        String result="";
             try {
 				connexion = jdbcConfiguration.getConnection();
 	            statement = connexion.prepareStatement("SELECT * FROM ville_france WHERE Code_postal = ?;");
@@ -91,13 +96,20 @@ public class VilleDaoImpl implements VilleDao {
             		if(statement != null) {
             			statement.close();
             		}
-            		if(resultat != null) {
-            			resultat.close();
-            		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+					
+				}finally {
+	            	try {
+	            		if(resultat != null) {
+	            			resultat.close();
+	            		}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	            }
             }
 		
 		return null;
@@ -166,8 +178,6 @@ public class VilleDaoImpl implements VilleDao {
 		            statement.setString(7, longitude);
 		            
 		            statement.executeUpdate();
-		            
-		            statement.close();
 
 		            return "ville ajoutee a la base de donnees";
 				}
@@ -189,7 +199,16 @@ public class VilleDaoImpl implements VilleDao {
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}finally {
+	            	try {
+	            		if(statement != null) {
+	            			statement.close();
+	            		}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	            }
             }
             
 		return "ERREUR, Verifiez vos parametres";
@@ -232,7 +251,16 @@ public class VilleDaoImpl implements VilleDao {
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				} finally {
+	            	try {
+	            		if(statement != null) {
+	            			statement.close();
+	            		}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	            }
             }
             
 		return "Ville effacee";
