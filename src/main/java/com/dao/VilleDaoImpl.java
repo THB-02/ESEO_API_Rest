@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import com.config.JDBCConfiguration;
@@ -33,7 +35,7 @@ public class VilleDaoImpl implements VilleDao {
             try {
 				connexion = jdbcConfiguration.getConnection();
 				statement = connexion.createStatement();
-	            resultat = statement.executeQuery("SELECT * FROM ville_france;");
+	            resultat = statement.executeQuery("SELECT * FROM villes_france;");
 	            
 	            while(resultat.next()) {
 	            	villes.add(new Ville(resultat.getInt("Code_commune_INSEE"),resultat.getString("Nom_commune"),
@@ -43,7 +45,7 @@ public class VilleDaoImpl implements VilleDao {
 	            	
 	            }
 			} catch (SQLException e) {
-				LOGGER.log(null, e);
+				LOGGER.log(Level.ERROR, e);
 			}
             finally {
             	try {
@@ -51,14 +53,14 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					LOGGER.log(null, e);
+					LOGGER.log(Level.ERROR, e);
 				}finally {
 	            	try {
 	            		if(resultat != null) {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						LOGGER.log(null, e);
+						LOGGER.log(Level.ERROR, e);
 					}
 	            }
             }
@@ -84,7 +86,7 @@ public class VilleDaoImpl implements VilleDao {
             			resultat.getString("Longitude"));
 	            
 			} catch (SQLException e) {
-				LOGGER.log(null, e);
+				LOGGER.log(Level.ERROR, e);
 			}
             finally {
             	try {
@@ -92,7 +94,7 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					LOGGER.log(null, e);
+					LOGGER.log(Level.ERROR, e);
 					
 				}finally {
 	            	try {
@@ -100,7 +102,7 @@ public class VilleDaoImpl implements VilleDao {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						LOGGER.log(null, e);
+						LOGGER.log(Level.ERROR, e);
 					}
 	            }
             }
@@ -131,7 +133,7 @@ public class VilleDaoImpl implements VilleDao {
 	            return "ville ajoutee a la base de donnees";
 	            
 			} catch (SQLException e) {
-				LOGGER.log(null, e);
+				LOGGER.log(Level.ERROR, e);
 			}
             finally {
             	try {
@@ -139,7 +141,7 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					LOGGER.log(null, e);
+					LOGGER.log(Level.ERROR, e);
 				}
             }
 		return "ERREUR, Verifiez vos parametres";
@@ -180,28 +182,28 @@ public class VilleDaoImpl implements VilleDao {
 	            
 	            
 			} catch (SQLException e) {
-				LOGGER.log(null, e);
+				LOGGER.log(Level.ERROR, e);
 			}finally {
             	try {
             		if(statement != null) {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					LOGGER.log(null, e);
+					LOGGER.log(Level.ERROR, e);
 				}finally {
 	            	try {
 	            		if(resultat != null) {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						LOGGER.log(null, e);
+						LOGGER.log(Level.ERROR, e);
 					}finally {
 		            	try {
 		            		if(statement2 != null) {
 		            			statement2.close();
 		            		}
 						} catch (SQLException e) {
-							LOGGER.log(null, e);
+							LOGGER.log(Level.ERROR, e);
 						}
 		            }
 	            }
@@ -238,7 +240,7 @@ public class VilleDaoImpl implements VilleDao {
 				
 
 			} catch (SQLException e) {
-				LOGGER.log(null, e);
+				LOGGER.log(Level.ERROR, e);
 			}
             finally {
             	try {
@@ -246,21 +248,21 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					LOGGER.log(null, e);
+					LOGGER.log(Level.ERROR, e);
 				}finally {
 	            	try {
 	            		if(resultat != null) {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						LOGGER.log(null, e);
+						LOGGER.log(Level.ERROR, e);
 					}finally {
 		            	try {
 		            		if(statement2 != null) {
 		            			statement2.close();
 		            		}
 						} catch (SQLException e) {
-							LOGGER.log(null, e);
+							LOGGER.log(Level.ERROR, e);
 						}
 		            }
 	            }
