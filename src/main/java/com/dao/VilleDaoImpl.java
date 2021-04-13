@@ -5,17 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 import com.config.JDBCConfiguration;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.beans.Customizer;
 import  java.sql.Connection;
 import java.sql.PreparedStatement;
 import  java.sql.Statement;
 
 public class VilleDaoImpl implements VilleDao {
 
+	private static final Logger LOGGER = Logger.getLogger(Customizer.class);
 	private JDBCConfiguration jdbcConfiguration;
 
 	public VilleDaoImpl(JDBCConfiguration jdbcConfiguration) {
@@ -43,7 +44,7 @@ public class VilleDaoImpl implements VilleDao {
 	            }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.log(null, e);
 			}
             finally {
             	try {
@@ -52,7 +53,7 @@ public class VilleDaoImpl implements VilleDao {
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.log(null, e);
 				}finally {
 	            	try {
 	            		if(resultat != null) {
@@ -60,7 +61,7 @@ public class VilleDaoImpl implements VilleDao {
 	            		}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.log(null, e);
 					}
 	            }
             }
@@ -89,7 +90,7 @@ public class VilleDaoImpl implements VilleDao {
 	            
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.log(null, e);
 			}
             finally {
             	try {
@@ -98,7 +99,7 @@ public class VilleDaoImpl implements VilleDao {
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.log(null, e);
 					
 				}finally {
 	            	try {
@@ -107,7 +108,7 @@ public class VilleDaoImpl implements VilleDao {
 	            		}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.log(null, e);
 					}
 	            }
             }
@@ -139,7 +140,7 @@ public class VilleDaoImpl implements VilleDao {
 	            
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.log(null, e);
 			}
             finally {
             	try {
@@ -148,7 +149,7 @@ public class VilleDaoImpl implements VilleDao {
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.log(null, e);
 				}
             }
 		return "ERREUR, Verifiez vos parametres";
@@ -190,7 +191,7 @@ public class VilleDaoImpl implements VilleDao {
 	            
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.log(null, e);
 			}finally {
             	try {
             		if(statement != null) {
@@ -198,7 +199,7 @@ public class VilleDaoImpl implements VilleDao {
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.log(null, e);
 				}finally {
 	            	try {
 	            		if(resultat != null) {
@@ -206,7 +207,7 @@ public class VilleDaoImpl implements VilleDao {
 	            		}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.log(null, e);
 					}finally {
 		            	try {
 		            		if(statement2 != null) {
@@ -214,7 +215,7 @@ public class VilleDaoImpl implements VilleDao {
 		            		}
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
-							e.printStackTrace();
+							LOGGER.log(null, e);
 						}
 		            }
 	            }
@@ -252,7 +253,7 @@ public class VilleDaoImpl implements VilleDao {
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.log(null, e);
 			}
             finally {
             	try {
@@ -261,7 +262,7 @@ public class VilleDaoImpl implements VilleDao {
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.log(null, e);
 				}finally {
 	            	try {
 	            		if(resultat != null) {
@@ -269,7 +270,7 @@ public class VilleDaoImpl implements VilleDao {
 	            		}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.log(null, e);
 					}finally {
 		            	try {
 		            		if(statement2 != null) {
@@ -277,7 +278,7 @@ public class VilleDaoImpl implements VilleDao {
 		            		}
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
-							e.printStackTrace();
+							LOGGER.log(null, e);
 						}
 		            }
 	            }
