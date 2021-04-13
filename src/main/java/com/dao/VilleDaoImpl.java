@@ -211,7 +211,6 @@ public class VilleDaoImpl implements VilleDao {
 					statement = connexion.prepareStatement("DELETE from ville_france WHERE Code_commune_insee=?");
 					statement.setString(1, INSEE);
 					statement.executeUpdate();
-					statement.close();
 					
 		            return "ville supprimee";
 				}
