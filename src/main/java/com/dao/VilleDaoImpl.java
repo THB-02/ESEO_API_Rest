@@ -47,7 +47,9 @@ public class VilleDaoImpl implements VilleDao {
 			}
             finally {
             	try {
-					connexion.close();
+            		if(statement != null) {
+            			statement.close();
+            		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
