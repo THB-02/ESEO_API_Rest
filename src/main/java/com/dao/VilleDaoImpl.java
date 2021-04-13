@@ -170,15 +170,15 @@ public class VilleDaoImpl implements VilleDao {
 				if(resultat.next()) {
 					statement2 = connexion.prepareStatement("Insert Into ville_france Values(?,?,?,?,?,?,?);");
 		            
-		            statement.setString(1, INSEE);
-		            statement.setString(2, commune);
-		            statement.setString(3, cp);
-		            statement.setString(4, libelle);
-		            statement.setString(5, ligne5);
-		            statement.setString(6, latitude);
-		            statement.setString(7, longitude);
+		            statement2.setString(1, INSEE);
+		            statement2.setString(2, commune);
+		            statement2.setString(3, cp);
+		            statement2.setString(4, libelle);
+		            statement2.setString(5, ligne5);
+		            statement2.setString(6, latitude);
+		            statement2.setString(7, longitude);
 		            
-		            statement.executeUpdate();
+		            statement2.executeUpdate();
 
 		            return "ville ajoutee a la base de donnees";
 				}
