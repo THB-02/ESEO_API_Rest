@@ -228,6 +228,7 @@ public class VilleDaoImpl implements VilleDao {
 	public String deleteVille(String INSEE) {
 		Connection connexion = null;
         PreparedStatement statement = null;
+        PreparedStatement statement2 = null;
         ResultSet resultat = null;
             try {
             	connexion = jdbcConfiguration.getConnection();
@@ -237,9 +238,9 @@ public class VilleDaoImpl implements VilleDao {
 				
 				if(resultat.next()) {
 					
-					statement = connexion.prepareStatement("DELETE from ville_france WHERE Code_commune_insee=?");
-					statement.setString(1, INSEE);
-					statement.executeUpdate();
+					statement2 = connexion.prepareStatement("DELETE from ville_france WHERE Code_commune_insee=?");
+					statement2.setString(1, INSEE);
+					statement2.executeUpdate();
 					
 		            return "ville supprimee";
 				}
@@ -255,21 +256,30 @@ public class VilleDaoImpl implements VilleDao {
 			}
             finally {
             	try {
-            		if(resultat != null) {
-            			resultat.close();
+            		if(statement != null) {
+            			statement.close();
             		}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} finally {
+				}finally {
 	            	try {
-	            		if(statement != null) {
-	            			statement.close();
+	            		if(resultat != null) {
+	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
+					}finally {
+		            	try {
+		            		if(statement2 != null) {
+		            			statement2.close();
+		            		}
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		            }
 	            }
             }
             
