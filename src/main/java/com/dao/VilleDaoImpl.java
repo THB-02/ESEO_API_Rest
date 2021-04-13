@@ -43,7 +43,6 @@ public class VilleDaoImpl implements VilleDao {
 	            	
 	            }
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				LOGGER.log(null, e);
 			}
             finally {
@@ -52,7 +51,6 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					LOGGER.log(null, e);
 				}finally {
 	            	try {
@@ -60,7 +58,6 @@ public class VilleDaoImpl implements VilleDao {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						LOGGER.log(null, e);
 					}
 	            }
@@ -89,7 +86,6 @@ public class VilleDaoImpl implements VilleDao {
 	            return ville;
 	            
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				LOGGER.log(null, e);
 			}
             finally {
@@ -98,7 +94,6 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					LOGGER.log(null, e);
 					
 				}finally {
@@ -107,7 +102,6 @@ public class VilleDaoImpl implements VilleDao {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						LOGGER.log(null, e);
 					}
 	            }
@@ -139,7 +133,6 @@ public class VilleDaoImpl implements VilleDao {
 	            return "ville ajoutee a la base de donnees";
 	            
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				LOGGER.log(null, e);
 			}
             finally {
@@ -148,7 +141,6 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					LOGGER.log(null, e);
 				}
             }
@@ -190,7 +182,6 @@ public class VilleDaoImpl implements VilleDao {
 	            
 	            
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				LOGGER.log(null, e);
 			}finally {
             	try {
@@ -198,7 +189,6 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					LOGGER.log(null, e);
 				}finally {
 	            	try {
@@ -206,7 +196,6 @@ public class VilleDaoImpl implements VilleDao {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						LOGGER.log(null, e);
 					}finally {
 		            	try {
@@ -214,7 +203,6 @@ public class VilleDaoImpl implements VilleDao {
 		            			statement2.close();
 		            		}
 						} catch (SQLException e) {
-							// TODO Auto-generated catch block
 							LOGGER.log(null, e);
 						}
 		            }
@@ -252,7 +240,6 @@ public class VilleDaoImpl implements VilleDao {
 				
 
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				LOGGER.log(null, e);
 			}
             finally {
@@ -261,7 +248,6 @@ public class VilleDaoImpl implements VilleDao {
             			statement.close();
             		}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					LOGGER.log(null, e);
 				}finally {
 	            	try {
@@ -269,7 +255,6 @@ public class VilleDaoImpl implements VilleDao {
 	            			resultat.close();
 	            		}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						LOGGER.log(null, e);
 					}finally {
 		            	try {
@@ -277,7 +262,6 @@ public class VilleDaoImpl implements VilleDao {
 		            			statement2.close();
 		            		}
 						} catch (SQLException e) {
-							// TODO Auto-generated catch block
 							LOGGER.log(null, e);
 						}
 		            }
