@@ -41,12 +41,23 @@ public class VilleDaoImpl implements VilleDao {
 	            			resultat.getString("Longitude")));
 	            	
 	            }
-	            resultat.close();
-	            statement.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+            		if(resultat != null) {
+            			resultat.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
        return villes;
 	}
 	
@@ -55,6 +66,7 @@ public class VilleDaoImpl implements VilleDao {
 		Connection connexion = null;
         PreparedStatement statement = null;
         ResultSet resultat = null;
+        String result="";
             try {
 				connexion = jdbcConfiguration.getConnection();
 	            statement = connexion.prepareStatement("SELECT * FROM ville_france WHERE Code_postal = ?;");
@@ -68,15 +80,25 @@ public class VilleDaoImpl implements VilleDao {
             			resultat.getString("Ligne_5"),resultat.getString("Latitude"),
             			resultat.getString("Longitude"));
 	            
-	            resultat.close();
-	            statement.close();
-	            
 	            return ville;
 	            
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+            		if(resultat != null) {
+            			resultat.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
 		
 		return null;
 		
@@ -101,15 +123,22 @@ public class VilleDaoImpl implements VilleDao {
 	            
 	            statement.executeUpdate();
 
-	            statement.close();
-	            
 	            return "ville ajoutee a la base de donnees";
 	            
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+            finally {
+            	try {
+            		if(statement != null) {
+            			statement.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
 		return "ERREUR, Verifiez vos parametres";
 	}
 	
@@ -137,10 +166,9 @@ public class VilleDaoImpl implements VilleDao {
 		            statement.setString(7, longitude);
 		            
 		            statement.executeUpdate();
-
-		            resultat.close();
-		            statement.close();
 		            
+		            statement.close();
+
 		            return "ville ajoutee a la base de donnees";
 				}
 				else {
@@ -153,6 +181,16 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+            finally {
+            	try {
+            		if(resultat != null) {
+            			resultat.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
             
 		return "ERREUR, Verifiez vos parametres";
 	}
@@ -173,13 +211,9 @@ public class VilleDaoImpl implements VilleDao {
 					statement = connexion.prepareStatement("DELETE from ville_france WHERE Code_commune_insee=?");
 					statement.setString(1, INSEE);
 					statement.executeUpdate();
-					
-					resultat.close();
-		            statement.close();
+					statement.close();
 					
 		            return "ville supprimee";
-		            
-		            
 				}
 				else {
 					return "ville inexistante";
@@ -191,7 +225,16 @@ public class VilleDaoImpl implements VilleDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+            finally {
+            	try {
+            		if(resultat != null) {
+            			resultat.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
             
 		return "Ville effacee";
 	}
