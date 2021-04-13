@@ -78,12 +78,10 @@ public class VilleDaoImpl implements VilleDao {
 	            
 	            resultat.next();
 	            
-	            Ville ville = new Ville(resultat.getInt("Code_commune_INSEE"),resultat.getString("Nom_commune"),
+	            return new Ville(resultat.getInt("Code_commune_INSEE"),resultat.getString("Nom_commune"),
             			resultat.getInt("Code_postal"),resultat.getString("Libelle_acheminement"),
             			resultat.getString("Ligne_5"),resultat.getString("Latitude"),
             			resultat.getString("Longitude"));
-	            
-	            return ville;
 	            
 			} catch (SQLException e) {
 				LOGGER.log(null, e);
