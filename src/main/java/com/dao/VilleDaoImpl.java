@@ -28,7 +28,7 @@ public class VilleDaoImpl implements VilleDao {
 		Connection connexion = null;
         Statement statement = null;
         ResultSet resultat = null;
-        List<Ville> villes = new ArrayList<Ville>();
+        List<Ville> villes = new ArrayList<>();
         
             try {
 				connexion = jdbcConfiguration.getConnection();
@@ -110,7 +110,7 @@ public class VilleDaoImpl implements VilleDao {
 	}
 
 	@Override
-	public String postVille(String INSEE, String commune, String cp, String libelle, String ligne5, String latitude,
+	public String postVille(String insee, String commune, String cp, String libelle, String ligne5, String latitude,
 			String longitude) {
 		Connection connexion = null;
         PreparedStatement statement = null;
@@ -118,7 +118,7 @@ public class VilleDaoImpl implements VilleDao {
 				connexion = jdbcConfiguration.getConnection();
 	            statement = connexion.prepareStatement("Insert Into ville_france Values(?,?,?,?,?,?,?);");
 	            
-	            statement.setString(1, INSEE);
+	            statement.setString(1, insee);
 	            statement.setString(2, commune);
 	            statement.setString(3, cp);
 	            statement.setString(4, libelle);
@@ -146,7 +146,7 @@ public class VilleDaoImpl implements VilleDao {
 	}
 	
 	@Override
-	public String putVille(String INSEE, String commune, String cp, String libelle, String ligne5, String latitude,
+	public String putVille(String insee, String commune, String cp, String libelle, String ligne5, String latitude,
 			String longitude) {
 		Connection connexion = null;
         PreparedStatement statement = null;
@@ -155,13 +155,13 @@ public class VilleDaoImpl implements VilleDao {
             try {
 				connexion = jdbcConfiguration.getConnection();
 				statement = connexion.prepareStatement("SELECT * from ville_france WHERE Code_commune_insee=?");
-				statement.setString(1, INSEE);
+				statement.setString(1, insee);
 				resultat = statement.executeQuery();
 				
 				if(resultat.next()) {
 					statement2 = connexion.prepareStatement("Insert Into ville_france Values(?,?,?,?,?,?,?);");
 		            
-		            statement2.setString(1, INSEE);
+		            statement2.setString(1, insee);
 		            statement2.setString(2, commune);
 		            statement2.setString(3, cp);
 		            statement2.setString(4, libelle);
@@ -212,7 +212,7 @@ public class VilleDaoImpl implements VilleDao {
 	}
 	
 	@Override
-	public String deleteVille(String INSEE) {
+	public String deleteVille(String insee) {
 		Connection connexion = null;
         PreparedStatement statement = null;
         PreparedStatement statement2 = null;
@@ -220,13 +220,13 @@ public class VilleDaoImpl implements VilleDao {
             try {
             	connexion = jdbcConfiguration.getConnection();
 				statement = connexion.prepareStatement("SELECT * from ville_france WHERE Code_commune_insee=?");
-				statement.setString(1, INSEE);
+				statement.setString(1, insee);
 				resultat = statement.executeQuery();
 				
 				if(resultat.next()) {
 					
 					statement2 = connexion.prepareStatement("DELETE from ville_france WHERE Code_commune_insee=?");
-					statement2.setString(1, INSEE);
+					statement2.setString(1, insee);
 					statement2.executeUpdate();
 					
 		            return "ville supprimee";
