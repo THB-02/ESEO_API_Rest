@@ -35,7 +35,7 @@ public class VilleDaoImpl implements VilleDao {
             try {
 				connexion = jdbcConfiguration.getConnection();
 				statement = connexion.createStatement();
-	            resultat = statement.executeQuery("SELECT * FROM villes_france;");
+	            resultat = statement.executeQuery("SELECT * FROM ville_france;");
 	            
 	            while(resultat.next()) {
 	            	villes.add(new Ville(resultat.getInt("Code_commune_INSEE"),resultat.getString("Nom_commune"),
