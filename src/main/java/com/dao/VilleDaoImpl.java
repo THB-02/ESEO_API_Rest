@@ -197,11 +197,11 @@ public class VilleDaoImpl implements VilleDao {
 	
 	@Override
 	public String deleteVille(String INSEE) {
-		Connection connexion = null;
+
         PreparedStatement statement = null;
         ResultSet resultat = null;
-            try {
-            	connexion = jdbcConfiguration.getConnection();
+            try(Connection connexion = jdbcConfiguration.getConnection()){
+            	
 				statement = connexion.prepareStatement("SELECT * from ville_france WHERE Code_commune_insee=?");
 				statement.setString(1, INSEE);
 				resultat = statement.executeQuery();
