@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.config.JDBCConfiguration;
-import com.dao.Ville;
+import com.dto.Ville;
 import com.dao.VilleDao;
 
 @RestController

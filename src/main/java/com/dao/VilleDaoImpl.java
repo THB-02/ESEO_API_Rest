@@ -10,6 +10,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import com.config.JDBCConfiguration;
+import com.dto.Ville;
 
 import java.beans.Customizer;
 import  java.sql.Connection;
