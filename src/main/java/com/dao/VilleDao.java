@@ -2,6 +2,8 @@ package com.dao;
 
 import java.util.List;
 
+import com.dto.Ville;
+
 public interface VilleDao {
 
 	public  List<Ville> getVilles();
